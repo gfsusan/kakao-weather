@@ -104,6 +104,13 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.backgroundView?.backgroundColor = .clear
+            headerView.textLabel?.textColor = .white
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row < 3 {
             let menuOption = MenuOption(rawValue: indexPath.row)
