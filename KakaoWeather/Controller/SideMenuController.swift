@@ -12,6 +12,10 @@ private let cellId = "cellId"
 
 class SideMenuController: ViewController {
     
+    var delegate: WeatherControllerDelegate?
+    
+    let numberOfStoredLocations = 3
+    
     let headerView: UIView = {
         let headerView = UIView()
         headerView.translatesAutoresizingMaskIntoConstraints = false
@@ -69,10 +73,9 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             // TODO: - load number of stored locations
-            let numberOfStoredLocations = -3
-            return MenuOption.allCases.count + numberOfStoredLocations
+            return MenuOption.allCases.count - numberOfStoredLocations
         } else {
-            return 3
+            return numberOfStoredLocations
         }
     }
     
@@ -83,7 +86,7 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             cell.menuOption = MenuOption.allCases[indexPath.row]
         } else {
-            cell.menuOption = MenuOption.allCases[indexPath.row + 3]
+            cell.menuOption = MenuOption.allCases[indexPath.row + numberOfStoredLocations]
         }
         
         return cell
@@ -98,6 +101,18 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
             return "Tools"
         } else {
             return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row < 3 {
+            let menuOption = MenuOption(rawValue: indexPath.row)
+            delegate?.handleSideMenuToggle(forMenuOption: menuOption)
+        } else if indexPath.section == 1 {
+            let menuOption = MenuOption(rawValue: indexPath.row + numberOfStoredLocations)
+            delegate?.handleSideMenuToggle(forMenuOption: menuOption)
+        } else {
+            
         }
     }
 }

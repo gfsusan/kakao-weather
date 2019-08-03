@@ -21,6 +21,7 @@ class ContainerController: UIViewController {
     
     func setupSideMenuController() {
         let sideMenuController = SideMenuController()
+        sideMenuController.delegate = self
         view.insertSubview(sideMenuController.view, at: 0)
         addChild(sideMenuController)
         sideMenuController.didMove(toParent: self)
@@ -36,7 +37,7 @@ class ContainerController: UIViewController {
         weatherNavigationController.didMove(toParent: self)
     }
     
-    func showSideMenuController(shouldExpand: Bool) {
+    func animateSideMenuController(shouldExpand: Bool, menuOption: MenuOption?) {
         if shouldExpand {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
                 self.weatherNavigationController.view.frame.origin.x = self.weatherNavigationController.view.frame.width - 100
@@ -44,21 +45,22 @@ class ContainerController: UIViewController {
         } else {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
                 self.weatherNavigationController.view.frame.origin.x = 0
-            }, completion: nil)
+            }, completion: { _ in
+                if let menu = menuOption {
+                    self.handleMenuSelection(forMenuOption: menu)
+                }
+            })
         }
+    }
+    
+    func handleMenuSelection(forMenuOption menuOption: MenuOption) {
+        print(menuOption.label)
     }
 }
 
 extension ContainerController: WeatherControllerDelegate {
-    
-    func handleSideMenuToggle() {
-
-//        if !isExpanded {
-//            setupSideMenuController()
-//        }
-        
+    func handleSideMenuToggle(forMenuOption menuOption: MenuOption?) {
         isExpanded = !isExpanded
-        showSideMenuController(shouldExpand: isExpanded)
+        animateSideMenuController(shouldExpand: isExpanded, menuOption: menuOption)
     }
-    
 }

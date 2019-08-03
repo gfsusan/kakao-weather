@@ -9,5 +9,5 @@
 import Foundation
 
 protocol WeatherControllerDelegate {
-    func handleSideMenuToggle()
+    func handleSideMenuToggle(forMenuOption: MenuOption?)
 }
