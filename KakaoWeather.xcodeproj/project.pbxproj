@@ -66,10 +66,10 @@
 		08BE18D122F58EDA00C07F6B /* KakaoWeather */ = {
 			isa = PBXGroup;
 			children = (
+				08BE18E822F590BE00C07F6B /* ContainerController.swift */,
+				08BE18EC22F5910000C07F6B /* WeatherController.swift */,
+				08BE18F522F5B31700C07F6B /* SideMenu */,
 				08BE18EE22F5961E00C07F6B /* Utils */,
-				08BE18E622F5909900C07F6B /* Model */,
-				08BE18E422F5908F00C07F6B /* View */,
-				08BE18E522F5909500C07F6B /* Controller */,
 				08BE18D222F58EDA00C07F6B /* AppDelegate.swift */,
 				08BE18D622F58EDA00C07F6B /* Main.storyboard */,
 				08BE18D922F58EDB00C07F6B /* Assets.xcassets */,
@@ -91,9 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				08BE18D422F58EDA00C07F6B /* ViewController.swift */,
-				08BE18E822F590BE00C07F6B /* ContainerController.swift */,
 				08BE18EA22F590F000C07F6B /* SideMenuController.swift */,
-				08BE18EC22F5910000C07F6B /* WeatherController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -112,6 +110,16 @@
 				08BE18EF22F5962F00C07F6B /* Protocols.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		08BE18F522F5B31700C07F6B /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				08BE18E622F5909900C07F6B /* Model */,
+				08BE18E422F5908F00C07F6B /* View */,
+				08BE18E522F5909500C07F6B /* Controller */,
+			);
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
