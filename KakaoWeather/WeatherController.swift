@@ -17,6 +17,11 @@ class WeatherController: ViewController {
         return button
     }()
     
+    lazy var addButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAdd))
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,9 +30,14 @@ class WeatherController: ViewController {
     
     override func configureConstraints() {
         navigationItem.leftBarButtonItem = hamburgerButton
+        navigationItem.rightBarButtonItem = addButton
     }
     
     @objc func handleSideMenuToggle() {
         delegate?.handleSideMenuToggle(forMenuOption: nil)
+    }
+    
+    @objc func handleAdd() {
+        print("handle add pressed")
     }
 }
