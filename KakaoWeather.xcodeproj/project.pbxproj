@@ -16,6 +16,8 @@
 		08BE18EB22F590F000C07F6B /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE18EA22F590F000C07F6B /* SideMenuController.swift */; };
 		08BE18ED22F5910000C07F6B /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE18EC22F5910000C07F6B /* WeatherController.swift */; };
 		08BE18F022F5962F00C07F6B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE18EF22F5962F00C07F6B /* Protocols.swift */; };
+		08BE18F222F59DE200C07F6B /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE18F122F59DE200C07F6B /* MenuCell.swift */; };
+		08BE18F422F5A1D100C07F6B /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE18F322F5A1D100C07F6B /* MenuOption.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		08BE18EA22F590F000C07F6B /* SideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
 		08BE18EC22F5910000C07F6B /* WeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherController.swift; sourceTree = "<group>"; };
 		08BE18EF22F5962F00C07F6B /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		08BE18F122F59DE200C07F6B /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		08BE18F322F5A1D100C07F6B /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 		08BE18E422F5908F00C07F6B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				08BE18F122F59DE200C07F6B /* MenuCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -96,6 +101,7 @@
 		08BE18E622F5909900C07F6B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				08BE18F322F5A1D100C07F6B /* MenuOption.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +185,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08BE18F222F59DE200C07F6B /* MenuCell.swift in Sources */,
+				08BE18F422F5A1D100C07F6B /* MenuOption.swift in Sources */,
 				08BE18D522F58EDA00C07F6B /* ViewController.swift in Sources */,
 				08BE18EB22F590F000C07F6B /* SideMenuController.swift in Sources */,
 				08BE18D322F58EDA00C07F6B /* AppDelegate.swift in Sources */,
