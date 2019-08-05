@@ -1,5 +1,6 @@
 //
-//  MenuOption.swiftreturn #imageLiteral(resourceName: <#T##String#>)//  KakaoWeather
+//  MenuOption.swift
+//  KakaoWeather
 //
 //  Created by Susan Kim on 03/08/2019.
 //  Copyright © 2019 Susan Kim. All rights reserved.
@@ -11,6 +12,7 @@ enum MenuOption: Int, CaseIterable {
     case share
     case editLocations
     case currentLocation
+    case location
     case settings
     case sendFeedback
     case rate
@@ -23,6 +25,8 @@ enum MenuOption: Int, CaseIterable {
             return "Edit Locations"
         case .currentLocation:
             return "Current Location"
+        case .location:
+            return "Saved Location"
         case .settings:
             return "Settings"
         case .sendFeedback:
