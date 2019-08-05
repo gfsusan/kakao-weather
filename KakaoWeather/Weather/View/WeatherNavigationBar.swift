@@ -12,6 +12,12 @@ class WeatherNavigationBar: UINavigationBar {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        // Set navigation bar and shadow transparent
+        setBackgroundImage(UIImage(), for: .default)
+        shadowImage = UIImage()
+        backgroundColor = .clear
+        isTranslucent = true
     }
     
     required init?(coder aDecoder: NSCoder) {
