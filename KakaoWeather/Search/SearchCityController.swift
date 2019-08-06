@@ -63,11 +63,10 @@ class SearchCityController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-//        cell.textLabel?.text = matchingItems[indexPath.row].placemark.title
         
-        let completion = completionResults[indexPath.row]
-        cell.textLabel?.text = completion.title
-        cell.detailTextLabel?.text = completion.subtitle
+        let completionResult = completionResults[indexPath.row]
+        cell.textLabel?.text = completionResult.title
+        cell.detailTextLabel?.text = completionResult.subtitle
         
         return cell
     }
@@ -84,6 +83,7 @@ class SearchCityController: UITableViewController {
 
             self.matchingItems.forEach({ (mapItem) in
                 print(mapItem.placemark.title)
+                print(mapItem.placemark.locality)
                 print(mapItem.placemark.coordinate)
             })
         }
@@ -117,7 +117,10 @@ extension SearchCityController: UISearchBarDelegate, UISearchControllerDelegate 
 
 extension SearchCityController: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        completionResults = completer.results
+        completionResults = completer.results.filter({ (completionCandidate) -> Bool in
+            // search for only units larger than a city
+            completionCandidate.subtitle == ""
+        })
         tableView.reloadData()
     }
 }
