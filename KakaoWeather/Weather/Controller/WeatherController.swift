@@ -38,6 +38,8 @@ class WeatherController: ViewController {
     }
     
     @objc func handleAdd() {
-        print("handle add pressed")
+        let searchVC = SearchCityController()
+        let searchNavContr = UINavigationController(rootViewController: searchVC)
+        self.present(searchNavContr, animated: true)
     }
 }
