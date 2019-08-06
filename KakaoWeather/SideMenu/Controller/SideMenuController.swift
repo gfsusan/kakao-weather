@@ -16,19 +16,14 @@ class SideMenuController: ViewController {
     
     let numberOfStoredLocations = 3
     
-    let headerView: UIView = {
-        let headerView = UIView()
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        let titleLabel = UILabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = "Sign in"
-        titleLabel.textColor = .white
-        titleLabel.sizeToFit()
-        headerView.addSubview(titleLabel)
-        titleLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -16).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor).isActive = true
-        return headerView
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Menu"
+        label.font = .systemFont(ofSize: 20)
+        label.textColor = .white
+        label.sizeToFit()
+        return label
     }()
     
     lazy var tableView: UITableView = {
@@ -49,12 +44,20 @@ class SideMenuController: ViewController {
     }
     
     override func configureConstraints() {
+        let headerView = UIView()
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        
         view.addSubview(headerView)
         headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        headerView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
+        headerView.addSubview(titleLabel)
+        titleLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -16).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor).isActive = true
+
         view.addSubview(tableView)
         tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
