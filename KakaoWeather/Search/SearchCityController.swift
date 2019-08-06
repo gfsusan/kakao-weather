@@ -37,7 +37,7 @@ class SearchCityController: UITableViewController {
     }
     
     func configureTableView() {
-        tableView.register(AutocompleteCell
+        tableView.register(SearchResultCell
             .self, forCellReuseIdentifier: cellId)
     }
 
@@ -69,8 +69,24 @@ class SearchCityController: UITableViewController {
         cell.textLabel?.text = completion.title
         cell.detailTextLabel?.text = completion.subtitle
         
-     
         return cell
+    }
+    
+    // MARK: - Navigtaion
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let completion = completionResults[indexPath.row]
+        
+        let searchRequest = MKLocalSearch.Request(completion: completion)
+        let localSearch = MKLocalSearch(request: searchRequest)
+        localSearch.start { (response, error) in
+            guard let response = response else { return }
+            self.matchingItems = response.mapItems
+
+            self.matchingItems.forEach({ (mapItem) in
+                print(mapItem.placemark.title)
+                print(mapItem.placemark.coordinate)
+            })
+        }
     }
 
 }
