@@ -21,6 +21,7 @@
 		08BE18FB22F5B4D900C07F6B /* WeatherNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE18FA22F5B4D900C07F6B /* WeatherNavigationBar.swift */; };
 		08BE190322F8609E00C07F6B /* SearchCityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE190222F8609E00C07F6B /* SearchCityController.swift */; };
 		08BE190522F8FA0D00C07F6B /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE190422F8FA0D00C07F6B /* SearchResultCell.swift */; };
+		08E4EAA022F98ACC0078EEEF /* ApplicationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EA9F22F98ACC0078EEEF /* ApplicationSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		08BE18FA22F5B4D900C07F6B /* WeatherNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNavigationBar.swift; sourceTree = "<group>"; };
 		08BE190222F8609E00C07F6B /* SearchCityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityController.swift; sourceTree = "<group>"; };
 		08BE190422F8FA0D00C07F6B /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		08E4EA9F22F98ACC0078EEEF /* ApplicationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		08BE18D122F58EDA00C07F6B /* KakaoWeather */ = {
 			isa = PBXGroup;
 			children = (
+				08E4EA9F22F98ACC0078EEEF /* ApplicationSettings.swift */,
 				08BE18FF22F85A7600C07F6B /* Search */,
 				08BE18E822F590BE00C07F6B /* ContainerController.swift */,
 				08BE18F622F5B48D00C07F6B /* Weather */,
@@ -250,6 +253,7 @@
 				08BE18D322F58EDA00C07F6B /* AppDelegate.swift in Sources */,
 				08BE18F022F5962F00C07F6B /* Protocols.swift in Sources */,
 				08BE18FB22F5B4D900C07F6B /* WeatherNavigationBar.swift in Sources */,
+				08E4EAA022F98ACC0078EEEF /* ApplicationSettings.swift in Sources */,
 				08BE18E922F590BE00C07F6B /* ContainerController.swift in Sources */,
 				08BE190522F8FA0D00C07F6B /* SearchResultCell.swift in Sources */,
 				08BE18ED22F5910000C07F6B /* WeatherController.swift in Sources */,
