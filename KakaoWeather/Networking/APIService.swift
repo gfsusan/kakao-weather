@@ -19,7 +19,7 @@ class APIService {
         
     }
     
-    func fetchForecast(latitude: Double, longtitude: Double, completion: @escaping((Result<String, APIError>) -> ())) {
+    func fetchForecast(latitude: Double, longtitude: Double, completion: @escaping((Result<Forecast, APIError>) -> ())) {
         let urlString = "\(baseUrl)\(key)/\(latitude),\(longtitude)?exclude=alerts,flags"
         guard let url = URL(string: urlString) else {
             completion(.failure(.urlError))
@@ -32,9 +32,14 @@ class APIService {
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
+                    if let jsonDict = json as? Dictionary<String, Any> {
+                        let forecast = Forecast(json: jsonDict)
+                        completion(.success(forecast))
+                    } else {
+                        completion(.failure(.parseFailure))
+                    }
                 } catch {
-                    print(error)
+                    completion(.failure(.noData))
                 }
             }
         }.resume()
@@ -43,4 +48,6 @@ class APIService {
 
 enum APIError: Error {
     case urlError
+    case parseFailure
+    case noData
 }

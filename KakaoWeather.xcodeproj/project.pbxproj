@@ -23,6 +23,7 @@
 		08BE190522F8FA0D00C07F6B /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE190422F8FA0D00C07F6B /* SearchResultCell.swift */; };
 		08E4EAA022F98ACC0078EEEF /* ApplicationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EA9F22F98ACC0078EEEF /* ApplicationSettings.swift */; };
 		08E4EAA622F9C1470078EEEF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EAA522F9C1470078EEEF /* APIService.swift */; };
+		08E4EAA822F9CA710078EEEF /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EAA722F9CA710078EEEF /* Forecast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		08BE190422F8FA0D00C07F6B /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		08E4EA9F22F98ACC0078EEEF /* ApplicationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettings.swift; sourceTree = "<group>"; };
 		08E4EAA522F9C1470078EEEF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		08E4EAA722F9CA710078EEEF /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 		08BE18F722F5B49C00C07F6B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				08E4EAA722F9CA710078EEEF /* Forecast.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				08BE18F222F59DE200C07F6B /* MenuCell.swift in Sources */,
 				08BE18F422F5A1D100C07F6B /* MenuOption.swift in Sources */,
+				08E4EAA822F9CA710078EEEF /* Forecast.swift in Sources */,
 				08BE18D522F58EDA00C07F6B /* ViewController.swift in Sources */,
 				08BE18EB22F590F000C07F6B /* SideMenuController.swift in Sources */,
 				08BE190322F8609E00C07F6B /* SearchCityController.swift in Sources */,
