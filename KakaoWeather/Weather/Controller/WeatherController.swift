@@ -22,6 +22,23 @@ class WeatherController: ViewController {
         return button
     }()
     
+    lazy var tempButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "Test", style: .plain, target: self, action: #selector(handleTest))
+        return button
+    }()
+    
+    @objc func handleTest() {
+        APIService.shared.fetchForecast(latitude: 45, longtitude: 21.2) { (result) in
+            switch result {
+                
+            case .success(let forecast):
+                print(forecast)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +47,8 @@ class WeatherController: ViewController {
     
     override func configureConstraints() {
         navigationItem.leftBarButtonItem = hamburgerButton
-        navigationItem.rightBarButtonItem = addButton
+//        navigationItem.rightBarButtonItem = addButton
+        navigationItem.rightBarButtonItems = [addButton, tempButton]
     }
     
     @objc func handleSideMenuToggle() {
