@@ -66,6 +66,7 @@ extension WeatherDetailCell: UITableViewDelegate, UITableViewDataSource {
         
         tableView.register(CurrentCell.self, forCellReuseIdentifier: cellIds[0])
         tableView.register(HourlyCell.self, forCellReuseIdentifier: cellIds[1])
+        tableView.register(DailyCell.self, forCellReuseIdentifier: cellIds[2])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -96,6 +97,14 @@ extension WeatherDetailCell: UITableViewDelegate, UITableViewDataSource {
             
             return cell
             
+        case 2:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? DailyCell else { return defaultCell }
+            
+            if let forecast = forecast {
+                cell.dailyViewModel = DailyWeatherViewModel(forecast: forecast)
+            }
+            
+            return cell
         default:
             return defaultCell
         }

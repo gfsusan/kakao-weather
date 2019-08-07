@@ -19,7 +19,12 @@ struct DailyWeatherViewModel {
         
         var weathers = [DailyWeather]()
         
-        daily.points.forEach { (point) in
+        daily.points.enumerated().forEach { (index, point) in
+            // skip first because it is today's date
+            if index == 0 {
+                return
+            }
+            
             let calendar = Calendar.current
             let dayComponent = calendar.component(.weekday, from: point.time)
             let day = days[dayComponent]
@@ -28,16 +33,16 @@ struct DailyWeatherViewModel {
             
             let max: String
             if let temp = point.temperature?.max {
-                max = "\(Int(temp))°"
+                max = "\(Int(temp))"
             } else {
-                max = " -- °"
+                max = " -- "
             }
             
             let min: String
             if let temp = point.temperature?.min {
-                min = "\(Int(temp))°"
+                min = "\(Int(temp))"
             } else {
-                min = " -- °"
+                min = " -- "
             }
             
             weathers.append(DailyWeather(day: day, icon: icon, maxTemperature: max, minTemperature: min))
