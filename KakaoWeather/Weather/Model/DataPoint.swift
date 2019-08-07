@@ -26,6 +26,7 @@ struct DataPoint {
     let apparentTemperature: Temperature?
     let uvIndex: Int?
     let summary: String?
+    let icon: String?
     
     init(json: Dictionary<String, Any>) {
         let timestamp = json["time"] as? Double ?? 0
@@ -84,6 +85,7 @@ struct DataPoint {
         
         self.uvIndex = json["uvIndex"] as? Int
         self.summary = json["summary"] as? String
+        self.icon = json["icon"] as? String
 
     }
 }
