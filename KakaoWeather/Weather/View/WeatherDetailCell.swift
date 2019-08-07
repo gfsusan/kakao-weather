@@ -44,9 +44,13 @@ extension WeatherDetailCell: UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.backgroundColor = .blue
+        
         cellIds.forEach { (id) in
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: id)
         }
+        
+        tableView.register(CurrentCell.self, forCellReuseIdentifier: cellIds[0])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,7 +61,16 @@ extension WeatherDetailCell: UITableViewDelegate, UITableViewDataSource {
         let cellId = cellIds[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
-        return cell
+        switch indexPath.row {
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CurrentCell else {
+                return UITableViewCell()
+            }
+            
+            return cell
+        default:
+            return cell
+        }
     }
     
     

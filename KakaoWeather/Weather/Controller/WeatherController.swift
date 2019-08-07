@@ -97,6 +97,8 @@ extension WeatherController: UICollectionViewDelegate, UICollectionViewDataSourc
         collectionView.isPagingEnabled = true
         
         collectionView.register(WeatherDetailCell.self, forCellWithReuseIdentifier: cellId)
+        
+        collectionView.contentInsetAdjustmentBehavior = .never
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -127,14 +129,10 @@ extension WeatherController: UICollectionViewDelegate, UICollectionViewDataSourc
 
 extension WeatherController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: view.frame.height)
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 }
