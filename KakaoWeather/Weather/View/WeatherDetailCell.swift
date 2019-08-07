@@ -65,6 +65,7 @@ extension WeatherDetailCell: UITableViewDelegate, UITableViewDataSource {
         }
         
         tableView.register(CurrentCell.self, forCellReuseIdentifier: cellIds[0])
+        tableView.register(HourlyCell.self, forCellReuseIdentifier: cellIds[1])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,23 +74,30 @@ extension WeatherDetailCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellId = cellIds[indexPath.row]
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let defaultCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
         switch indexPath.row {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CurrentCell else {
-                return UITableViewCell()
-            }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CurrentCell else { return defaultCell }
             
             if let forecast = forecast, let location = location {
                 cell.currentViewModel = CurrentWeatherViewModel(location: location, forecast: forecast)
             }
             
             return cell
+        
+        case 1:
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? HourlyCell else { return defaultCell }
+            
+            if let forecast = forecast {
+                cell.hourlyViewModel = HourlyWeatherViewModel(forecast: forecast)
+            }
+            
+            return cell
             
         default:
-            return cell
+            return defaultCell
         }
     }
     

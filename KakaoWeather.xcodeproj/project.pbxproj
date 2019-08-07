@@ -15,6 +15,8 @@
 		08B5AA4122FA776F0090000F /* CurrentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5AA4022FA776F0090000F /* CurrentCell.swift */; };
 		08B5AA4422FA7DCF0090000F /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5AA4322FA7DCF0090000F /* CurrentWeatherViewModel.swift */; };
 		08B5AA4622FA88120090000F /* HourlyWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5AA4522FA88120090000F /* HourlyWeatherViewModel.swift */; };
+		08B5AA4822FA8C050090000F /* HourlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5AA4722FA8C050090000F /* HourlyCell.swift */; };
+		08B5AA4A22FA8F1C0090000F /* HourlyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5AA4922FA8F1C0090000F /* HourlyCollectionView.swift */; };
 		08BE18D322F58EDA00C07F6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE18D222F58EDA00C07F6B /* AppDelegate.swift */; };
 		08BE18D522F58EDA00C07F6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE18D422F58EDA00C07F6B /* ViewController.swift */; };
 		08BE18D822F58EDA00C07F6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08BE18D622F58EDA00C07F6B /* Main.storyboard */; };
@@ -45,6 +47,8 @@
 		08B5AA4022FA776F0090000F /* CurrentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCell.swift; sourceTree = "<group>"; };
 		08B5AA4322FA7DCF0090000F /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
 		08B5AA4522FA88120090000F /* HourlyWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherViewModel.swift; sourceTree = "<group>"; };
+		08B5AA4722FA8C050090000F /* HourlyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyCell.swift; sourceTree = "<group>"; };
+		08B5AA4922FA8F1C0090000F /* HourlyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyCollectionView.swift; sourceTree = "<group>"; };
 		08BE18CF22F58EDA00C07F6B /* KakaoWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KakaoWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08BE18D222F58EDA00C07F6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08BE18D422F58EDA00C07F6B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 				08BE18FA22F5B4D900C07F6B /* WeatherNavigationBar.swift */,
 				08B5AA3E22FA71AF0090000F /* WeatherDetailCell.swift */,
 				08B5AA4022FA776F0090000F /* CurrentCell.swift */,
+				08B5AA4722FA8C050090000F /* HourlyCell.swift */,
+				08B5AA4922FA8F1C0090000F /* HourlyCollectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 				08BE18EB22F590F000C07F6B /* SideMenuController.swift in Sources */,
 				08BE190322F8609E00C07F6B /* SearchCityController.swift in Sources */,
 				08BE18D322F58EDA00C07F6B /* AppDelegate.swift in Sources */,
+				08B5AA4822FA8C050090000F /* HourlyCell.swift in Sources */,
 				08BE18F022F5962F00C07F6B /* Protocols.swift in Sources */,
 				08BE18FB22F5B4D900C07F6B /* WeatherNavigationBar.swift in Sources */,
 				08E4EAA022F98ACC0078EEEF /* ApplicationSettings.swift in Sources */,
@@ -316,6 +323,7 @@
 				08B5AA3922FA55C30090000F /* Wind.swift in Sources */,
 				08E4EAB022F9FBCA0078EEEF /* Temperature.swift in Sources */,
 				08B5AA4122FA776F0090000F /* CurrentCell.swift in Sources */,
+				08B5AA4A22FA8F1C0090000F /* HourlyCollectionView.swift in Sources */,
 				08E4EAA622F9C1470078EEEF /* APIService.swift in Sources */,
 				08BE18E922F590BE00C07F6B /* ContainerController.swift in Sources */,
 				08E4EAAE22F9D34B0078EEEF /* DataPoint.swift in Sources */,

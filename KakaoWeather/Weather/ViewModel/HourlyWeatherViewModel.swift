@@ -33,7 +33,7 @@ struct HourlyWeatherViewModel {
             let icon = point.icon ?? ""
             let temperature: String
             if let temp = point.temperature?.current {
-                temperature = "\(temp)°"
+                temperature = "\(Int(temp))°"
             } else {
                 temperature = " -- °"
             }
