@@ -12,6 +12,10 @@ struct SummaryViewModel {
     let summary: String
     
     init(forecast: Forecast) {
-        summary = forecast.daily?.points.first?.summary ?? ""
+        if let summary = forecast.daily?.points.first?.summary {
+            self.summary = "Today: \(summary)"
+        } else {
+            self.summary = ""
+        }
     }
 }

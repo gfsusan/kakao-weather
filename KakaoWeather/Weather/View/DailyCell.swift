@@ -13,7 +13,6 @@ class DailyCell: UITableViewCell {
     var dailyViewModel: DailyWeatherViewModel? {
         didSet {
             updateView()
-            print(dailyViewModel)
         }
     }
     
