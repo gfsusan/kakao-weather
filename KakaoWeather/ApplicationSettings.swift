@@ -10,13 +10,13 @@ import UIKit
 
 class ApplicationSettings {
     struct Config {
-        static let coordinates = "com.suzenyada.coordinates"
+        static let locations = "com.suzenyada.locations"
     }
     
     struct Status {
         
-        static var coordinates: Set<Location> = {
-            guard let fetchedData = UserDefaults.standard.data(forKey: Config.coordinates) else {
+        static var locations: Set<Location> = {
+            guard let fetchedData = UserDefaults.standard.data(forKey: Config.locations) else {
                 return []
             }
             guard let coordinates = try? PropertyListDecoder().decode(Set<Location>.self, from: fetchedData) else { return [] }
@@ -25,8 +25,8 @@ class ApplicationSettings {
         }()
         {
             didSet {
-                guard let coordinatesData = try? PropertyListEncoder().encode(coordinates) else { return }
-                UserDefaults.standard.set(coordinatesData, forKey: Config.coordinates)
+                guard let coordinatesData = try? PropertyListEncoder().encode(locations) else { return }
+                UserDefaults.standard.set(coordinatesData, forKey: Config.locations)
             }
         }
         
