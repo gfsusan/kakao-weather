@@ -20,7 +20,7 @@ class APIService {
     }
     
     func fetchForecast(latitude: Double, longtitude: Double, completion: @escaping((Result<Forecast, APIError>) -> ())) {
-        let urlString = "\(baseUrl)\(key)/\(latitude),\(longtitude)?exclude=alerts,flags"
+        let urlString = "\(baseUrl)\(key)/\(latitude),\(longtitude)?units=si&exclude=alerts,flags"
         guard let url = URL(string: urlString) else {
             completion(.failure(.urlError))
             return
