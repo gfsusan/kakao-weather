@@ -32,24 +32,6 @@ class WeatherController: ViewController {
         return button
     }()
     
-    lazy var tempButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "Test", style: .plain, target: self, action: #selector(handleTest))
-        return button
-    }()
-    
-    @objc func handleTest() {
-        let tempLocation = Location(name: "SEEOOOOOOUULL", latitude: 21.2, longtitude: 45)
-        APIService.shared.fetchForecast(location: tempLocation) { (result) in
-            switch result {
-                
-            case .success(let forecast):
-                print(forecast)
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -117,7 +99,6 @@ extension WeatherController: UICollectionViewDelegate, UICollectionViewDataSourc
             case .success(let forecast):
                 cell.location = location
                 cell.forecast = forecast
-                print("Forecast data for location \(location): \(forecast)")
             case .failure(_):
                 // stop
                 print("Failed to fetch weather data")
