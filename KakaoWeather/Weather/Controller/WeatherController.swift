@@ -105,7 +105,22 @@ extension WeatherController: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? WeatherDetailCell else { return UICollectionViewCell() }
+        
+        let locations = Array(ApplicationSettings.Status.locations)
+        let location = locations[indexPath.row]
+        
+        APIService.shared.fetchForecast(location: location) { (result) in
+            switch result {
                 
+            case .success(let forecast):
+                // update cell
+                print("Forecast data for location \(location): \(forecast)")
+            case .failure(_):
+                // stop
+                print("Failed to fetch weather data")
+            }
+        }
+        
         return cell
     }
 }
