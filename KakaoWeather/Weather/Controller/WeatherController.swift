@@ -28,7 +28,8 @@ class WeatherController: ViewController {
     }()
     
     @objc func handleTest() {
-        APIService.shared.fetchForecast(latitude: 45, longtitude: 21.2) { (result) in
+        let tempLocation = Location(name: "SEEOOOOOOUULL", latitude: 21.2, longtitude: 45)
+        APIService.shared.fetchForecast(location: tempLocation) { (result) in
             switch result {
                 
             case .success(let forecast):

@@ -15,11 +15,11 @@ class ApplicationSettings {
     
     struct Status {
         
-        static var coordinates: Set<Coordinate> = {
+        static var coordinates: Set<Location> = {
             guard let fetchedData = UserDefaults.standard.data(forKey: Config.coordinates) else {
                 return []
             }
-            guard let coordinates = try? PropertyListDecoder().decode(Set<Coordinate>.self, from: fetchedData) else { return [] }
+            guard let coordinates = try? PropertyListDecoder().decode(Set<Location>.self, from: fetchedData) else { return [] }
             
             return coordinates
         }()
@@ -30,19 +30,5 @@ class ApplicationSettings {
             }
         }
         
-    }
-}
-
-struct Coordinate: Codable, Hashable {
-    var longtitude: Double
-    var latitude: Double
-    
-    static func == (lhs: Coordinate, rhs: Coordinate) -> Bool {
-        return lhs.longtitude == rhs.longtitude && lhs.latitude == rhs.latitude
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(longtitude)
-        hasher.combine(latitude)
     }
 }
