@@ -20,7 +20,7 @@ struct HourlyWeatherViewModel {
         var hourlyData = [HourlyWeather]()
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hha"
+        dateFormatter.dateFormat = "ha"
         dateFormatter.amSymbol = "AM"
         dateFormatter.pmSymbol = "PM"
         
