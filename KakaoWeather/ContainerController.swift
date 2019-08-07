@@ -31,8 +31,7 @@ class ContainerController: UIViewController {
     
     func setupWeatherController() {
         weatherController.delegate = self
-        weatherNavigationController = UINavigationController(navigationBarClass: WeatherNavigationBar.self, toolbarClass: nil)
-        weatherNavigationController.addChild(weatherController)
+        weatherNavigationController = UINavigationController(rootViewController: weatherController)
         
         view.addSubview(weatherNavigationController.view)
         addChild(weatherNavigationController)
