@@ -77,7 +77,7 @@ class WeatherController: ViewController {
     }
     
     @objc func handleSideMenuToggle() {
-        delegate?.handleSideMenuToggle(forMenuOption: nil)
+        delegate?.handleSideMenuToggle(forLocation: nil)
     }
     
     @objc func handleAdd() {

@@ -10,15 +10,14 @@ import UIKit
 
 class MenuCell: UITableViewCell {
 
-    var menuOption: MenuOption? {
+    var location: Location? {
         didSet {
-            iconImageView.image = menuOption?.iconImage
-            menuLabel.text = menuOption?.label
+            menuLabel.text = location?.name
         }
     }
     
     let iconImageView: UIImageView = {
-        let iv = UIImageView(image: nil)
+        let iv = UIImageView(image: #imageLiteral(resourceName: "pin"))
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.contentMode = .scaleAspectFit
         return iv
@@ -49,12 +48,12 @@ class MenuCell: UITableViewCell {
         
         let stackView = UIStackView(arrangedSubviews: [iconImageView, menuLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 32
+        stackView.spacing = 16
         stackView.axis = .horizontal
         
         addSubview(stackView)
-        stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+        stackView.widthAnchor.constraint(equalToConstant: 200).isActive = true
         stackView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }

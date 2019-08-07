@@ -38,7 +38,7 @@ class ContainerController: UIViewController {
         weatherNavigationController.didMove(toParent: self)
     }
     
-    func animateSideMenuController(shouldExpand: Bool, menuOption: MenuOption?) {
+    func animateSideMenuController(shouldExpand: Bool, location: Location?) {
         if shouldExpand {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
                 self.weatherNavigationController.view.frame.origin.x = self.weatherNavigationController.view.frame.width - 100
@@ -47,21 +47,21 @@ class ContainerController: UIViewController {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
                 self.weatherNavigationController.view.frame.origin.x = 0
             }, completion: { _ in
-                if let menu = menuOption {
-                    self.handleMenuSelection(forMenuOption: menu)
+                if let location = location {
+                    self.handleLocationSelection(forLocation: location)
                 }
             })
         }
     }
     
-    func handleMenuSelection(forMenuOption menuOption: MenuOption) {
-        print(menuOption.label)
+    func handleLocationSelection(forLocation location: Location) {
+        print(location.name)
     }
 }
 
 extension ContainerController: WeatherControllerDelegate {
-    func handleSideMenuToggle(forMenuOption menuOption: MenuOption?) {
+    func handleSideMenuToggle(forLocation location: Location?) {
         isExpanded = !isExpanded
-        animateSideMenuController(shouldExpand: isExpanded, menuOption: menuOption)
+        animateSideMenuController(shouldExpand: isExpanded, location: location)
     }
 }

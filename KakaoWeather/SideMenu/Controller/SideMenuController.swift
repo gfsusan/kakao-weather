@@ -86,25 +86,16 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? MenuCell else {
             return UITableViewCell()
         }
-        if indexPath.section == 0 {
-            cell.menuOption = MenuOption.allCases[indexPath.row]
-        } else {
-            cell.menuOption = MenuOption.allCases[indexPath.row + numberOfStoredLocations]
-        }
+        
+        let locations = Array(ApplicationSettings.Status.locations)
+        
+        cell.location = locations[indexPath.row]
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 1 {
-            return "Tools"
-        } else {
-            return nil
-        }
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -115,14 +106,10 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 && indexPath.row < 3 {
-            let menuOption = MenuOption(rawValue: indexPath.row)
-            delegate?.handleSideMenuToggle(forMenuOption: menuOption)
-        } else if indexPath.section == 1 {
-            let menuOption = MenuOption(rawValue: indexPath.row + numberOfStoredLocations)
-            delegate?.handleSideMenuToggle(forMenuOption: menuOption)
-        } else {
-            
-        }
+        let locations = Array(ApplicationSettings.Status.locations)
+
+        let location = locations[indexPath.row]
+        delegate?.handleSideMenuToggle(forLocation: location)
+    
     }
 }
