@@ -13,6 +13,8 @@ class ContainerController: UIViewController {
     var weatherNavigationController: UIViewController!
     var isExpanded: Bool = false
     
+    let sideMenuController = SideMenuController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWeatherController()
@@ -20,7 +22,6 @@ class ContainerController: UIViewController {
     }
     
     func setupSideMenuController() {
-        let sideMenuController = SideMenuController()
         sideMenuController.delegate = self
         view.insertSubview(sideMenuController.view, at: 0)
         addChild(sideMenuController)
@@ -61,6 +62,8 @@ class ContainerController: UIViewController {
 
 extension ContainerController: WeatherControllerDelegate {
     func handleSideMenuToggle(forLocation location: Location?) {
+        sideMenuController.tableView.reloadData()
+        
         isExpanded = !isExpanded
         animateSideMenuController(shouldExpand: isExpanded, location: location)
     }
