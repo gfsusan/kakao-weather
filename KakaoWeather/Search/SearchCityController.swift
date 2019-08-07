@@ -82,9 +82,13 @@ class SearchCityController: UITableViewController {
             self.matchingItems = response.mapItems
 
             self.matchingItems.forEach({ (mapItem) in
-                print(mapItem.placemark.title)
-                print(mapItem.placemark.locality)
-                print(mapItem.placemark.coordinate)
+                let placemark = mapItem.placemark
+                guard let name = placemark.title else { return }
+                let coordinate = placemark.coordinate
+                ApplicationSettings.Status.locations.insert(Location(name: name, latitude: coordinate.latitude, longtitude: coordinate.longitude))
+                self.dismiss(animated: true, completion: {
+                    self.dismiss(animated: true, completion: nil)
+                })
             })
         }
     }
