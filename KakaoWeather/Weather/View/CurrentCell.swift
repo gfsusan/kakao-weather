@@ -26,7 +26,7 @@ class CurrentCell: UITableViewCell {
     
     let temperatureLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 40)
+        label.font = .systemFont(ofSize: 80)
         label.textColor = .white
         return label
     }()
