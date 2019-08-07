@@ -103,6 +103,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		08B5AA5722FAAC9C0090000F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				08BE190222F8609E00C07F6B /* SearchCityController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		08B5AA5822FAACA10090000F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08BE190422F8FA0D00C07F6B /* SearchResultCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		08BE18C622F58EDA00C07F6B = {
 			isa = PBXGroup;
 			children = (
@@ -127,7 +143,6 @@
 				08BE18F722F5B49C00C07F6B /* Model */,
 				08BE18EE22F5961E00C07F6B /* Utils */,
 				08BE18FF22F85A7600C07F6B /* Search */,
-				08BE18E822F590BE00C07F6B /* ContainerController.swift */,
 				08BE18F622F5B48D00C07F6B /* Weather */,
 				08BE18F522F5B31700C07F6B /* SideMenu */,
 				08BE18D222F58EDA00C07F6B /* AppDelegate.swift */,
@@ -167,6 +182,7 @@
 		08BE18F522F5B31700C07F6B /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				08BE18E822F590BE00C07F6B /* ContainerController.swift */,
 				08BE18E422F5908F00C07F6B /* View */,
 				08BE18E522F5909500C07F6B /* Controller */,
 			);
@@ -223,8 +239,8 @@
 		08BE18FF22F85A7600C07F6B /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				08BE190222F8609E00C07F6B /* SearchCityController.swift */,
-				08BE190422F8FA0D00C07F6B /* SearchResultCell.swift */,
+				08B5AA5822FAACA10090000F /* View */,
+				08B5AA5722FAAC9C0090000F /* Controller */,
 			);
 			path = Search;
 			sourceTree = "<group>";
