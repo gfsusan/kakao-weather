@@ -66,8 +66,7 @@ class WeatherController: ViewController {
     
     override func configureConstraints() {
         navigationItem.leftBarButtonItem = hamburgerButton
-//        navigationItem.rightBarButtonItem = addButton
-        navigationItem.rightBarButtonItems = [addButton, tempButton]
+        navigationItem.rightBarButtonItem = addButton
         
         view.addSubview(collectionView)
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -97,7 +96,7 @@ extension WeatherController: UICollectionViewDelegate, UICollectionViewDataSourc
         collectionView.backgroundColor = .white
         collectionView.isPagingEnabled = true
         
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(WeatherDetailCell.self, forCellWithReuseIdentifier: cellId)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -105,9 +104,8 @@ extension WeatherController: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        let colors: [UIColor] = [.red, .orange, .yellow, .green, .blue, .purple]
-        cell.backgroundColor = colors[indexPath.item % 6]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? WeatherDetailCell else { return UICollectionViewCell() }
+                
         return cell
     }
 }
