@@ -70,16 +70,12 @@ class SideMenuController: ViewController {
 extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            // TODO: - load number of stored locations
-            return MenuOption.allCases.count - numberOfStoredLocations
-        } else {
-            return numberOfStoredLocations
-        }
+        let locations = ApplicationSettings.Status.locations
+        return locations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

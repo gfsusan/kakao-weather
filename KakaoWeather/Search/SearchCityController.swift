@@ -83,9 +83,9 @@ class SearchCityController: UITableViewController {
 
             self.matchingItems.forEach({ (mapItem) in
                 let placemark = mapItem.placemark
-                guard let name = placemark.title else { return }
+                guard let city = placemark.locality else { return }
                 let coordinate = placemark.coordinate
-                ApplicationSettings.Status.locations.insert(Location(name: name, latitude: coordinate.latitude, longtitude: coordinate.longitude))
+                ApplicationSettings.Status.locations.insert(Location(name: city, latitude: coordinate.latitude, longtitude: coordinate.longitude))
                 self.dismiss(animated: true, completion: {
                     self.dismiss(animated: true, completion: nil)
                 })
@@ -98,16 +98,6 @@ class SearchCityController: UITableViewController {
 extension SearchCityController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let queryText = searchController.searchBar.text ?? ""
-//        let request = MKLocalSearch.Request()
-//        request.naturalLanguageQuery = queryText
-//
-//        let localSearch = MKLocalSearch(request: request)
-//        localSearch.start { (response, error) in
-//            guard let response = response else { return }
-//            self.matchingItems = response.mapItems
-//            self.tableView.reloadData()
-//        }
-        
         searchCompleter.queryFragment = queryText
         searchCompleter.filterType = .locationsOnly
     }
