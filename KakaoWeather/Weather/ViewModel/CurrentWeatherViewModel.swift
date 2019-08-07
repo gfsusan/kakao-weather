@@ -22,7 +22,7 @@ struct CurrentWeatherViewModel {
         city = location.name
         summary = forecast.current?.summary ??  ""
         if let temp = forecast.current?.temperature?.current {
-            temperature = "\(temp)°"
+            temperature = "\(Int(temp))°"
         } else {
             temperature = " -- °"
         }
@@ -36,13 +36,13 @@ struct CurrentWeatherViewModel {
         }
         
         if let maxTemp = forecast.daily?.points.first?.temperature?.max {
-            maxTemperature = "\(maxTemp)°"
+            maxTemperature = "\(Int(maxTemp))°"
         } else {
             maxTemperature = " -- °"
         }
         
         if let minTemp = forecast.daily?.points.first?.temperature?.min {
-            minTemperature = "\(minTemp)°"
+            minTemperature = "\(Int(minTemp))°"
         } else {
             minTemperature = " -- °"
         }

@@ -59,9 +59,7 @@ extension WeatherDetailCell: UITableViewDelegate, UITableViewDataSource {
     func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        
-        tableView.backgroundColor = .blue
-        
+                
         cellIds.forEach { (id) in
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: id)
         }
