@@ -12,6 +12,22 @@ private let cellIds = ["currentCellId", "hourlyCellId", "dailyCellId", "summaryC
 
 class WeatherDetailCell: UICollectionViewCell {
     
+    var forecast: Forecast? {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    var location: Location? {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     let tableView: UITableView = {
         let tv = UITableView()
         tv.translatesAutoresizingMaskIntoConstraints = false
@@ -59,15 +75,21 @@ extension WeatherDetailCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellId = cellIds[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
         switch indexPath.row {
-        case 1:
+        case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CurrentCell else {
                 return UITableViewCell()
             }
             
+            if let forecast = forecast, let location = location {
+                cell.currentViewModel = CurrentWeatherViewModel(location: location, forecast: forecast)
+            }
+            
             return cell
+            
         default:
             return cell
         }

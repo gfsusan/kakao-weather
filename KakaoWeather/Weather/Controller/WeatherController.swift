@@ -115,7 +115,8 @@ extension WeatherController: UICollectionViewDelegate, UICollectionViewDataSourc
             switch result {
                 
             case .success(let forecast):
-                // update cell
+                cell.location = location
+                cell.forecast = forecast
                 print("Forecast data for location \(location): \(forecast)")
             case .failure(_):
                 // stop

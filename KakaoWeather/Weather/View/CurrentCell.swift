@@ -10,6 +10,14 @@ import UIKit
 
 class CurrentCell: UITableViewCell {
     
+    var currentViewModel: CurrentWeatherViewModel? {
+        didSet {
+            cityLabel.text = currentViewModel?.city
+            summaryLabel.text = currentViewModel?.summary
+            temperatureLabel.text = currentViewModel?.temperature
+        }
+    }
+    
     let cityLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 28)
@@ -19,14 +27,14 @@ class CurrentCell: UITableViewCell {
     
     let summaryLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 18)
+        label.font = .systemFont(ofSize: 18, weight: .light)
         label.textColor = .white
         return label
     }()
     
     let temperatureLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 80)
+        label.font = .systemFont(ofSize: 80, weight: .light)
         label.textColor = .white
         return label
     }()
@@ -37,10 +45,6 @@ class CurrentCell: UITableViewCell {
         backgroundColor = .clear
         
         configureConstraints()
-        
-        cityLabel.text = "Dongjak-gu"
-        summaryLabel.text = "Mostly Cloudy"
-        temperatureLabel.text = "28°"
     }
     
     required init?(coder aDecoder: NSCoder) {
