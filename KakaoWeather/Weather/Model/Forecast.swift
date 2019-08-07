@@ -9,9 +9,6 @@
 import Foundation
 import CoreLocation
 
-typealias DataBlock = [String: Any]
-typealias DataPoint = [String: Any]
-
 struct Forecast {
     
     let location: CLLocation?
@@ -37,9 +34,23 @@ struct Forecast {
             timezone = nil
         }
 
-        current = json["currently"] as? Dictionary<String, Any> ?? nil
-        hourly = json["hourly"] as? Dictionary<String, Any> ?? nil
-        daily = json["daily"] as? Dictionary<String, Any> ?? nil
+        if let currentData = json["currently"] as? Dictionary<String, Any> {
+            current = DataPoint(json: currentData)
+        } else {
+            current = nil
+        }
+        
+        if let hourlyData = json["hourly"] as? Dictionary<String, Any> {
+            hourly = DataBlock(json: hourlyData)
+        } else {
+            hourly = nil
+        }
+        
+        if let dailyData = json["daily"] as? Dictionary<String, Any> {
+            daily = DataBlock(json: dailyData)
+        } else {
+            daily = nil
+        }
         
     }
 }
