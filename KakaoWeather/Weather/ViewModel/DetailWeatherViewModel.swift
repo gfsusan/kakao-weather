@@ -47,9 +47,10 @@ struct DetailWeatherViewModel {
             }
             
             if let intensity = current.precipitation?.intensity {
-                self.precipitation = "\(intensity) cm"
+                let roundedIntensity = Double(round(intensity*10)/10)
+                self.precipitation = "\(roundedIntensity) mm"
             } else {
-                self.precipitation = "-- cm"
+                self.precipitation = "-- mm"
             }
             
             if let press = current.pressure {
@@ -59,7 +60,8 @@ struct DetailWeatherViewModel {
             }
             
             if let visibility = current.visibility {
-                self.visibility = "\(visibility) km"
+                let roundedVisibility = Double(round(visibility*10)/10)
+                self.visibility = "\(roundedVisibility) km"
             } else {
                 self.visibility = "-- km"
             }

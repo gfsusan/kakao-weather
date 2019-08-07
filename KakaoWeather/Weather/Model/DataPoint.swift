@@ -74,14 +74,11 @@ struct DataPoint {
             self.wind = nil
         }
         
-        if let apparentTemperatureCurrent = json["apparentTemperature"] as? Double,
-            let apparentTemperatureMax = json["apparentTemperatureMax"] as? Double,
-            let apparentTemperatureMin = json["apparentTemperatureMin"] as? Double {
-            
-            self.apparentTemperature = Temperature(current: apparentTemperatureCurrent, max: apparentTemperatureMax, min: apparentTemperatureMin)
-        } else {
-            self.apparentTemperature = nil
-        }
+        let apparentTemperatureCurrent = json["apparentTemperature"] as? Double
+        let apparentTemperatureMax = json["apparentTemperatureMax"] as? Double
+        let apparentTemperatureMin = json["apparentTemperatureMin"] as? Double
+        
+        self.apparentTemperature = Temperature(current: apparentTemperatureCurrent, max: apparentTemperatureMax, min: apparentTemperatureMin)
         
         self.uvIndex = json["uvIndex"] as? Int
         self.summary = json["summary"] as? String
