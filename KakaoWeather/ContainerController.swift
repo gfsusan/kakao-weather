@@ -14,6 +14,7 @@ class ContainerController: UIViewController {
     var isExpanded: Bool = false
     
     let sideMenuController = SideMenuController()
+    let weatherController = WeatherController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,6 @@ class ContainerController: UIViewController {
     }
     
     func setupWeatherController() {
-        let weatherController = WeatherController()
         weatherController.delegate = self
         weatherNavigationController = UINavigationController(navigationBarClass: WeatherNavigationBar.self, toolbarClass: nil)
         weatherNavigationController.addChild(weatherController)
@@ -56,7 +56,11 @@ class ContainerController: UIViewController {
     }
     
     func handleLocationSelection(forLocation location: Location) {
-        print(location.name)
+        let locations = Array(ApplicationSettings.Status.locations)
+        if let itemIndex = locations.firstIndex(of: location) {
+            let indexPath = IndexPath(item: itemIndex, section: 0)
+            weatherController.collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
+        }
     }
 }
 
